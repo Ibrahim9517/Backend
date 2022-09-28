@@ -20,8 +20,8 @@ router.post('/add',(req, res)=>{
 
 
 
-router.post('/getall',(req, res)=>{
-    Model.findOne({})
+router.get('/getall',(req, res)=>{
+    Model.find({})
     .then((result) => {
             res.json(result);
     }).catch((err) => {
@@ -29,4 +29,15 @@ router.post('/getall',(req, res)=>{
         res.status(500).json(err);
     });
 })
+
+router.delete('/delete/:id', (req, res)=>{
+    Model.findByIdAndDelete(req.params.id)
+    .then((result) => {
+        console.log(result);
+        res.json(result);
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 module.exports =router;

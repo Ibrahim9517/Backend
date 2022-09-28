@@ -1,6 +1,7 @@
 const express =require('express');
 const userRouter=require('./routers/userRouter');
-const utilRouter=require('./routers/util')
+const utilRouter=require('./routers/util');
+const musicRouter=require('./routers/musicRouter');
 const cors=require('cors');
 
 
@@ -14,6 +15,9 @@ app.use(cors({
 }));
 app.use('/user',userRouter);
 app.use('/util',utilRouter);
+app.use('/music',musicRouter);
+
+app.use(express.static('./static/uploads'));
 
 app.listen(port, ()=>{
     console.log('express server started.....');

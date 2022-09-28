@@ -8,6 +8,8 @@ const mySchema= new Schema({
    lyrics : String,
    album : String,
    year : Number,
+   thumbnail:String,
+   file:String,
    createdAt : Date
 })
 
